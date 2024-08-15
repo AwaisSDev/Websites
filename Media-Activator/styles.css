@@ -1,0 +1,196 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    background-color: #020a2c;
+}
+
+header {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    padding: 15px 0px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .logo {
+    font-size: 1.5em;
+    color: #f0f4f5;
+}
+
+nav ul {
+    list-style: none;
+    margin-right: 50px;
+    display: flex;
+}
+
+nav ul li {
+    position: relative;;
+    margin-left: 30px;
+    right: 20pxs;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #feffff;
+}
+
+.hero {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: url('https://www.clker.com/cliparts/6/2/0/2/13926481231764053423simple-blue-background.jpg') no-repeat center center/cover;
+}
+
+.hero h1 {
+    font-size: 4em;
+    margin-bottom: 30px;
+    color: #faffff;
+}
+
+.hero p {
+    margin-bottom: 50px;
+    font-size: 1.5em;
+    margin-top: 10px;
+}
+
+.cta-button {
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    color: #000;
+    background-color: #f0f4f5;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #d4d4d4;
+    transform: scale(1.05);
+}
+
+section {
+    background: #3760a0;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+
+h2 {
+    font-size: 2.5em;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.service {
+    font-size: 22px;
+    margin: 20px;
+    padding: 20px;
+    background: #214478;
+    border-radius: 10px;
+}
+
+.testimonial {
+    font-size: 22px;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+    background: #214478;
+    border-radius: 10px;
+}
+
+.contact form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: grid;
+    gap: 10px;
+}
+
+.contact input, .contact textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background: #214478;
+    color: #fff;
+}
+
+.contact button {
+    top: 10px;
+    position: relative;
+    padding: 18px;
+    left: 18px;
+    background: #f0f4f5;
+    border: none;
+    border-radius: 5px;
+    color: #000;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact button:hover {
+    background-color: #ffffff;
+}
+
+footer {
+    background: #214478;
+    padding: 20px;
+    text-align: center;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+footer ul li {
+    margin: 0 15px;
+}
+
+footer ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+footer ul li a:hover {
+    color: #f0f4f5;
+}
+
+footer .social-media a {
+    margin: 0 10px;
+}
+
+footer .social-media img {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
+.btn{
+    border-radius: 30px;
+    top: -15px;
+    background-color: rgb(6, 226, 146);
+    padding: 15px 20px;
+}

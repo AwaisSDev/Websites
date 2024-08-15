@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Activator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    .dropdown {
+        top: -1px;
+        left: 22px;
+        margin-right: 12px;
+        font-size: 19px;
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+  display: none;
+  position: absolute;
+  background-color:transparent;
+  min-width: 200px;
+  top: 22px;
+  left: -70px;
+  padding: 30px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><a style="color: white; top: 25px; position: absolute; left: 50px; text-decoration: none;" href="welcome.html">Media Activator</a></div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <div class="dropdown ">
+                    <span>Services</span>
+                    <div class="dropdown-content">
+                      <a style="text-decoration: none; color: white;" href="#so">SEO Optimization</a><br><br>
+                      <a style="text-decoration: none; color: white;"href="#sm">Social Media Marketing</a><br><br>
+                      <a style="text-decoration: none; color: white;"href="#cc">Content Creation</a><br><br>
+                      <a style="text-decoration: none; color: white;"href="#pa">PPC Advertising</a><br><br>
+                      <a style="text-decoration: none; color: white;"href="#ar">Analytics & Reporting</a>
+                    </div>
+                  </div>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li class><a class="btn" href="book.php">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Unlock Your Business's Full Potential</h1>
+            <p>Expert digital marketing solutions tailored to your needs.</p>
+            <a href="book.php" class="cta-button">Schedule Meeting</a>
+        </div>
+    </section>
+    
+    <section id="about" class="about">
+        <h2>Who We Are</h2>
+
+        <p style="font-size: 22px;">At Media Activator, we specialize in delivering cutting-edge digital marketing strategies that drive results. Our team of experts is dedicated to understanding your unique goals and crafting tailored solutions to help you succeed.</p>
+    </section>
+    
+    <section id="services" class="services">
+        <h2 id="so">Our Services</h2>
+        <div class="service">
+
+            <h3 id="sm" >SEO Optimization</h3>
+            <p>Enhance your online visibility and drive organic traffic.</p>
+        </div>
+        <div class="service">
+          
+            <h3 id="pa">Social Media Marketing</h3>
+            <p>Engage and grow your audience on social platforms.</p>
+        </div>
+        <div class="service">            <h3 id="cc">PPC Advertising</h3>
+            <p>Get targeted traffic and maximize your ROI.</p>
+        </div>
+        <div class="service">
+
+            <h3 id="ar">Content Creation</h3>
+            <p>Craft compelling content that resonates with your audience.</p>
+        </div>
+        <div class="service">
+           
+            <h3 >Analytics & Reporting</h3>
+            <p>Measure your success and optimize your strategies.</p>
+        </div>
+    </section>
+    
+    <section id="testimonials" class="testimonials">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial">
+            <p>"Working with Media Activator has been a game-changer for our business. Their expertise in digital marketing helped us achieve remarkable growth."</p>
+            <span>- Will Smite</span>
+        </div>
+        <div class="testimonial">
+            <p>"The team at Media Activator is professional and results-driven. Their innovative strategies have significantly boosted our online presence."</p>
+            <span>- Jack Axel</span>
+        </div>
+    </section>
+    
+    <section id="contact" class="contact">
+        <h2>Get in Touch</h2>
+        <p>Have questions or need more information? Reach out to us!</p>
+        <form action="pro-form.php" method="post">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="tel" name="phone" placeholder="Phone">
+            <textarea name="message" placeholder="Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+    
+    <footer>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="book.html">Contact</a></li>
+        </ul>
+        <p>© 2024 Media Activator. All Rights Reserved.</p>
+    </footer>
+    <script>
+        function redirectBasedOnDevice() {
+            const isMobile = window.innerWidth <= 768;
+            const currentPath = window.location.pathname;
+
+            if (isMobile && !currentPath.includes('w-m.html')) {
+                window.location.href = 'w-m.html';
+            } else if (!isMobile && !currentPath.includes('welcome.html')) {
+                window.location.href = 'welcome.html';
+            }
+        }
+
+        // Run the redirection function on page load
+        window.onload = redirectBasedOnDevice;
+
+        // Run the redirection function on window resize
+        window.onresize = redirectBasedOnDevice;
+    </script>
+</body>
+</html>

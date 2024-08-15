@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Activator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    background-color: #020a2c;
+}
+
+header {
+    position: relative;
+    width: 100%;
+    padding: 15px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+nav .logo {
+    font-size: 1.5em;
+    color: #f0f4f5;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
+nav ul li {
+    position: relative;
+    margin-left: 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s;
+    padding: 10px 16px;
+}
+
+nav ul li a:hover {
+    color: #feffff;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #214478;
+    min-width: 200px;
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 10px 16px;
+    transition: color 0.3s;
+}
+
+.dropdown-content a:hover {
+    color: #feffff;
+}
+
+.dropdown-content .sub-dropdown {
+    position: relative;
+}
+
+.dropdown-content .sub-dropdown-content {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    background-color: #3760a0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.dropdown-content .sub-dropdown:hover .sub-dropdown-content {
+    display: block;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+}
+
+.hamburger div {
+    background-color: #fff;
+    height: 3px;
+    width: 25px;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+.nav-links {
+    display: hidden;
+    flex-direction: row;
+}
+
+.nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background: #020a2c;
+    width: 100%;
+    padding: 10px;
+}
+
+.nav-links li {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.nav-links li a {
+    font-size: 1.2em;
+}
+
+.hero {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: url('https://www.clker.com/cliparts/6/2/0/2/13926481231764053423simple-blue-background.jpg') no-repeat center center/cover;
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #faffff;
+}
+
+.hero p {
+    margin-bottom: 30px;
+    font-size: 1.2em;
+}
+
+.cta-button {
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    color: #000;
+    background-color: #f0f4f5;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #d4d4d4;
+    transform: scale(1.05);
+}
+
+section {
+    background: #3760a0;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2em;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.service, .testimonial {
+    font-size: 18px;
+    margin: 15px auto;
+    padding: 15px;
+    background: #214478;
+    border-radius: 10px;
+}
+
+.contact form {
+    max-width: 100%;
+    margin: 0 auto;
+    display: grid;
+    gap: 10px;
+    padding: 0 20px;
+}
+
+.contact input, .contact textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background: #214478;
+    color: #fff;
+}
+
+.contact button {
+    padding: 15px;
+    background: #f0f4f5;
+    border: none;
+    border-radius: 5px;
+    color: #000;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact button:hover {
+    background-color: #ffffff;
+}
+
+footer {
+    background: #214478;
+    padding: 20px;
+    text-align: center;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+footer ul li {
+    margin: 0 10px;
+}
+
+footer ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+footer ul li a:hover {
+    color: #f0f4f5;
+}
+
+/* Media Queries for Mobile Devices */
+@media only screen and (max-width: 768px) {
+    nav ul {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+    .btn{
+        background: none;
+    }
+}
+
+</style>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><a style="position: relative; left: 20px; color: white; text-decoration: none;" href="welcome.html">Media Activator</a></div>
+            <button class="hamburger" style="position:relative; right: 20px;">
+                <div></div>
+                <div></div>
+                <div></div>
+            </button>
+            <ul class="nav-links">
+                <li><a style="position: relative; left: 0px; font-size: 20px; margin-top: 20px;" href="#home">Home</a></li>
+                <li><a style="position: relative; left: 4px; font-size: 20px; margin-top: 20px;" href="#about">About Us</a></li>
+                <div class="dropdown">
+                    <span style="position: relative; left: 150px; font-size: 20px; margin-top: 20px;
+                    display: inline-block;
+                    position: relative;
+                    left: 150px;
+                    font-size: 20px;
+                    margin-top: -5px;
+                    top: 10px;">Services</span>
+                    <div class="dropdown-content">
+                        <a style="text-decoration: none; color: white;" href="#so">SEO Optimization</a>
+                        <div class="sub-dropdown">
+                            <a style="text-decoration: none; color: white;" href="#">More Services</a>
+                            <div class="sub-dropdown-content">
+                                <a style="text-decoration: none; color: white;" href="#sub-service1">Sub-Service 1</a>
+                                <a style="text-decoration: none; color: white;" href="#sub-service2">Sub-Service 2</a>
+                            </div>
+                        </div>
+                        <a style="text-decoration: none; color: white;" href="#sm">Social Media Marketing</a>
+                        <a style="text-decoration: none; color: white;" href="#cc">Content Creation</a>
+                        <a style="text-decoration: none; color: white;" href="#pa">PPC Advertising</a>
+                        <a style="text-decoration: none; color: white;" href="#ar">Analytics & Reporting</a>
+                    </div>
+                </div>
+                <li><a  style="position: relative; left: 5px; font-size: 20px; margin-top: 20px;
+                    display: inline-block;
+                    position: relative;
+                    font-size: 20px;
+                    margin-top: -5px;
+                    top: 10px;" href="#testimonials">Testimonials</a></li>
+                <li><a class="btn" href="book.php">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+        <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Activator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="fav.png" type="image/x-icon">
+</head>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        color: #fff;
+        background-color: #020a2c;
+    }
+
+    header {
+        position: relative;
+        width: 100%;
+        padding: 15px 0;
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    nav .logo {
+        font-size: 1.5em;
+        color: #f0f4f5;
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0;
+    }
+
+    nav ul li {
+        position: relative;
+        margin-left: 15px;
+    }
+
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.1em;
+        transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+        color: #feffff;
+    }
+
+    .dropdown {
+        text-align: center;
+        padding: 10px;
+        right: 150px;
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: rgb(42, 77, 183);
+        min-width: 200px;
+        padding: 30px 16px;
+        z-index: 1;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .hamburger {
+        display: none;
+        cursor: pointer;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        background: transparent;
+        border: none;
+    }
+
+    .hamburger div {
+        background-color: #fff;
+        height: 3px;
+        width: 25px;
+        margin: 3px 0;
+        transition: 0.3s;
+    }
+
+    .nav-links {
+        display: hidden;
+        flex-direction: row;
+    }
+
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background: #020a2c;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .nav-links span {
+        text-align: center;
+    }
+
+    .nav-links li a {
+        font-size: 1.2em;
+    }
+
+    .hero {
+        height: 70vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: url('https://www.clker.com/cliparts/6/2/0/2/13926481231764053423simple-blue-background.jpg') no-repeat center center/cover;
+    }
+
+    .hero h1 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        color: #faffff;
+    }
+
+    .hero p {
+        margin-bottom: 30px;
+        font-size: 1.2em;
+    }
+
+    .cta-button {
+        margin-top: 20px;
+        padding: 15px 30px;
+        font-size: 1.2em;
+        color: #000;
+        background-color: #f0f4f5;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .cta-button:hover {
+        background-color: #d4d4d4;
+        transform: scale(1.05);
+    }
+
+    section {
+        background: #3760a0;
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 2em;
+        color: #ffffff;
+        margin-bottom: 20px;
+    }
+
+    .service, .testimonial {
+        font-size: 18px;
+        margin: 15px auto;
+        padding: 15px;
+        background: #214478;
+        border-radius: 10px;
+    }
+
+    .contact form {
+        right: 12px;
+        position: relative;
+        max-width: 100%;
+        margin: 0 auto;
+        display: grid;
+        gap: 10px;
+        padding: 0 20px;
+    }
+
+    .contact input, .contact textarea {
+        width: 100%;
+        padding: 15px;
+        border: 1px solid #333;
+        border-radius: 5px;
+        background: #214478;
+        color: #fff;
+    }
+
+    .contact button {
+        padding: 15px;
+        background: #f0f4f5;
+        border: none;
+        border-radius: 5px;
+        color: #000;
+        font-size: 1em;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .contact button:hover {
+        background-color: #ffffff;
+    }
+
+    footer {
+        background: #214478;
+        padding: 20px;
+        text-align: center;
+    }
+
+    footer ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    footer ul li {
+        margin: 0 10px;
+    }
+
+    footer ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 0.9em;
+    }
+
+    footer ul li a:hover {
+        color: #f0f4f5;
+    }
+
+    /* Media Queries for Mobile Devices */
+@media only screen and (max-width: 1024px) {
+    nav ul {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+    .btn{
+        background: none;
+    }
+}
+
+</style>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><a style="position: relative; left: 20px; color: white; text-decoration: none;" href="welcome.html">Media Activator</a></div>
+            <button class="hamburger" style="position:relative; right: 20px;">
+                <div></div>
+                <div></div>
+                <div></div>
+            </button>
+            <ul class="nav-links">
+                <li><a style="position: relative; left: 0px; font-size: 20px; margin-top: 20px;" href="w1.html">Home</a></li>
+                <li><a  style="position: relative; left: 4px; font-size: 20px; margin-top: 20px;"href="#about">About Us</a></li>
+                <div class="dropdown ">
+                    <span style="position: relative; left: 150px; font-size: 20px; margin-top: 20px;">Services</span>
+                    <div class="dropdown-content">
+                        <a style="text-decoration: none; color: white;" href="#so">SEO Optimization</a><br><br>
+                        <a style="text-decoration: none; color: white;" href="#sm">Social Media Marketing</a><br><br>
+                        <a style="text-decoration: none; color: white;" href="#cc">Content Creation</a><br><br>
+                        <a style="text-decoration: none; color: white;" href="#pa">PPC Advertising</a><br><br>
+                        <a style="text-decoration: none; color: white;" href="#ar">Analytics & Reporting</a>
+                    </div>
+                </div>
+                <li><a style="position: relative; left: 5px;" href="#testimonials">Testimonials</a></li>
+                <li><a style="position: relative; left: 5px; top: 0px;"class="btn" href="book.php">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Unlock Your Business's Full Potential</h1>
+            <p>Expert digital marketing solutions tailored to your needs.</p>
+            <a href="book.php" class="cta-button">Schedule Meeting</a>
+        </div>
+    </section>
+    
+    <section id="about" class="about">
+        <h2>Who We Are</h2>
+
+        <p style="font-size: 22px;">At Media Activator, we specialize in delivering cutting-edge digital marketing strategies that drive results. Our team of experts is dedicated to understanding your unique goals and crafting tailored solutions to help you succeed.</p>
+    </section>
+    
+    <section id="services" class="services">
+        <h2 id="so">Our Services</h2>
+        <div class="service">
+
+            <h3 id="sm" >SEO Optimization</h3>
+            <p>Enhance your online visibility and drive organic traffic.</p>
+        </div>
+        <div class="service">
+          
+            <h3 id="pa">Social Media Marketing</h3>
+            <p>Engage and grow your audience on social platforms.</p>
+        </div>
+        <div class="service">
+            <h3 id="cc">PPC Advertising</h3>
+            <p>Get targeted traffic and maximize your ROI.</p>
+        </div>
+        <div class="service">
+
+            <h3 id="ar">Content Creation</h3>
+            <p>Craft compelling content that resonates with your audience.</p>
+        </div>
+        <div class="service">
+           
+            <h3 >Analytics & Reporting</h3>
+            <p>Measure your success and optimize your strategies.</p>
+        </div>
+    </section>
+    
+    <section id="testimonials" class="testimonials">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial">
+            <p>"Working with Media Activator has been a game-changer for our business. Their expertise in digital marketing helped us achieve remarkable growth."</p>
+            <span>- Will Smite</span>
+        </div>
+        <div class="testimonial">
+            <p>"The team at Media Activator is professional and results-driven. Their innovative strategies have significantly boosted our online presence."</p>
+            <span>- Jack Axel</span>
+        </div>
+    </section>
+    
+    <section id="contact" class="contact">
+        <h2>Get in Touch</h2>
+        <p>Have questions or need more information? Reach out to us!</p>
+        <form action="pro-form.php" method="post">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="tel" name="phone" placeholder="Phone">
+            <textarea name="message" placeholder="Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+    
+    <footer>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="book.html">Contact</a></li>
+        </ul>
+        <p>© 2024 Media Activator. All Rights Reserved.</p>
+    </footer>
+    
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+    <script>
+        function redirectBasedOnDevice() {
+            const isMobile = window.innerWidth <= 768;
+            const currentPath = window.location.pathname;
+
+            if (isMobile && !currentPath.includes('w-m.html')) {
+                window.location.href = 'w-m.html';
+            } else if (!isMobile && !currentPath.includes('welcome.html')) {
+                window.location.href = 'welcome.html';
+            }
+        }
+
+        // Run the redirection function on page load
+        window.onload = redirectBasedOnDevice;
+
+        // Run the redirection function on window resize
+        window.onresize = redirectBasedOnDevice;
+    </script>
+</body>
+</html>
